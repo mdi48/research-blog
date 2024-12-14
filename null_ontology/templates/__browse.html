@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static tailwind_tags %}
+
+{% block content %}
+<div class="container mx-auto px-4">
+    <h1 class="text-2xl font-bold mb-4 text-center">{{ category|title }} Posts</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-fr">
+        {% for post in posts %}
+            <div class="mycard bg-cover bg-center" style="background-image: url('{{ post.image.url }}')">
+                <div class="mycard-content">
+                    <h1 class="text-xl font-bold" onclick="window.location.href = '{{ post.slug }}'">{{ post.title }}</h1>
+                    <p class="text-center">{{ post.author }}</p>
+                </div>
+            </div>
+            {% empty %}
+                <p>No posts found.</p>
+        {% endfor %}
+    </div>
+
+    {% if total_pages > 1 %}
+    <div class="flex justify-center items-center space-x-4 mt-8">
+        {% if current_page > 1 %}
+            <a href="?page={{ current_page|add:"-1 "}}" class="px-4 py-2 border rounded">
+                Previous
+            </a>
+        {% endif %}
+
+        <div class="flex space-x-2">
+            {% for page_num in page_nums %}
+                <a href="?page={{ page_num }}"
+                    class="px-3 py-1 {% if page_num == current_page %} bg-blue-500 text-white {% else %} border {% endif %} rounded">
+                    {{ page_num }}
+                </a>
+            {% endfor %}
+        </div>
+
+        {% if current_page < total_pages %}
+            <a href="?page={{ current_page|add:"1" }}" class="px-4 py-2 border rounded">
+                Next
+            </a>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endblock content %}

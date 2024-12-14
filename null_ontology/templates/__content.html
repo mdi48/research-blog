@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{{post.title}}</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        {% tailwind_css %}
+    </head>
+    {% block content %}
+    <body>
+        <div class="text-center text-blue-800 flex flex-col items-center *:p-5 m-auto">
+            <h1 class="text-3xl">{{ post.title }}</h1>
+            {{ post.content }}
+
+            <p class="text-lg">By: {{ post.author }}</p>
+        </div>
+    </body>
+    {% endblock content %}

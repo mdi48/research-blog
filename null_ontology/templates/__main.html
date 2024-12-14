@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Null Ontology</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        {% tailwind_css %}
+    </head>
+    {% block content %}
+    <body>
+        <div class="text-center text-blue-800 flex flex-col items-center *:p-5">
+            <h1 class="text-3xl">Null Ontology</h1>
+
+            <h3 class="text-xl">What is Null Ontology?</h3>
+
+            <p class="text-lg">Null Ontology is a project that aims to explore the concept of nothingness. It is a philosophical and artistic endeavor that seeks to understand the nature of existence by examining the absence of being (among other things).</p>
+
+            <p class="text-lg">If you wish to learn more, consider looking into our <a href="{% url 'browse' category='theory' %}" class="text-blue-600">Theory</a> and <a href="{% url 'browse' category='fiction' %}" class="text-blue-600">Fiction</a></p>
+        </div>
+
+        <div class="content-grid">
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+
+        </div>
+    </body>
+    {% endblock content %}
+
+</html>

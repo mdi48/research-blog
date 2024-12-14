@@ -1,0 +1,25 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title>Django Tailwind</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{% tailwind_css %}
+	</head>
+
+	<body class="flex flex-col min-h-screen">
+		<div class="navigation p-4">
+			<a href="/" class="text-black active:no-underline underline hover:underline">Home</a>
+		</div>
+
+		<main class="flex-grow">
+			{% block content %}{% endblock content %}
+		</main>
+
+		<footer class="navigation p-4">
+			<p>&copy; 2024 Shamefully powered by Django and Tailwind </p>
+		</footer>
+	</body>
+</html>
