@@ -12,6 +12,8 @@
 	<body class="flex flex-col min-h-screen">
 		<div class="navigation p-4">
 			<a href="/" class="text-black active:no-underline underline hover:underline">Home</a>
+			<a href="{% url 'browse' category='theory' %}" class="text-black active:no-underline underline hover:underline">Theory</a>
+			<a href="{% url 'browse' category='fiction' %}" class="text-black active:no-underline underline hover:underline">Fiction</a>
 		</div>
 
 		<main class="flex-grow">
